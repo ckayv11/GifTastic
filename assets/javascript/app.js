@@ -8,7 +8,7 @@ var dogs = ["GSD", "Golden Retriever", "Black Lab", "Pitbull"];
 function displayDogs() {
 
     var dog = $(this).attr("data-name");
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dog + "&api_key=tqC0R8egBTOd0JGuFbMwnsSpIop1b4F9";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dog + "&api_key=tqC0R8egBTOd0JGuFbMwnsSpIop1b4F9&limit=10";
 
     // Creating an AJAX call for the specific dog button being clicked
     $.ajax({
