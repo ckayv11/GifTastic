@@ -59,7 +59,7 @@ function displayDogs() {
       // Then dynamicaly generating buttons for each dog in the array
       var btn = $("<button>");
       // Adding a class of dog-btn to our button
-      btn.addClass("dog-btn");
+      btn.addClass("dog-btn btn btn-info m-1");
       // Adding a data-attribute
       btn.attr("data-name", dogs[i]);
       // Providing the initial button text

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>GifTastic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="assets/images/puppyFavIcon.png">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -13,32 +14,32 @@
   <body>
     
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>DOG SEARCH</h1>
+       
+        <div class="row mt-3" id="header">
+            <div class="col-md-12 text-center my-5">
+                <h1>Must Love Dogs</h1>
             </div>
         </div>
 
     <!-- Rendered Buttons will get Dumped Here  -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 my-3">
                 <div id="buttons-view"></div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-9">
     <!-- Dog Results will Get Dumped Here -->
+        <div class="row">
+            <div class="col-md-9 mt-2">
                 <div id="dog-view"></div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 mt-2">
                 <form id="add-form">
                     <label for="form-input">Add any type of dog</label>
                     <input type="text" id="form-input">
                     <br>
     <!-- Button triggers new dog type to be added -->
-                    <input id="add-dog" type="submit" value="Submit">
+                    <button id="add-dog" type="submit" class="btn btn-info btn-sm mt-2">Submit</button>
                 </form>
             </div>
         </div>

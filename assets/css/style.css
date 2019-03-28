@@ -1,0 +1,16 @@
+#header {
+    background-image: url('../images/puppies.jpg');
+    background-size: contain;
+    background-repeat: round;
+    color: lightsalmon;
+}
+
+h1 {
+    position: relative;
+    bottom: 100%;
+}
+
+form {
+    background: lightgray;
+    padding: 10px 0 10px 10px;
+}
