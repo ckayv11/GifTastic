@@ -17,21 +17,14 @@ function displayDogs() {
     }).then(function(response) {
 
         console.log(response);
-        
+
       // Creating a div to hold the dog type
       var dogDiv = $("#dog-view");
 
-      // Storing the rating data
-      var ratingData = response.data.rating;
-
-      // Creating an element to have the rating displayed
-      var ratingDisplay = $("<p>").text("Rating: " + ratingData);
-
-      // Displaying the rating
-      dogDiv.append(ratingDisplay);
+      for (var i = 0; i < response.data.length; i++) {
 
       // Retrieving the URL for the image
-      var imgURL = response.data.images.fixed_height_still.url;
+      var imgURL = response.data[i].images.fixed_height.url;
 
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
@@ -39,13 +32,23 @@ function displayDogs() {
       // Appending the image
       dogDiv.append(image);
 
-      // Putting the entire movie above the previous dogs
-      $("#dog-view").prepend(dogDiv);
+      // Storing the rating data
+      var ratingData = response.data[i].rating;
+
+      // Creating an element to have the rating displayed
+      var ratingDisplay = $("<p>").text("Rating: " + ratingData);
+
+      // Displaying the rating
+      dogDiv.append(ratingDisplay);
+
+      // Putting the entire dog response above the previous dogs
+      $("#dog-view").append(dogDiv);
+      };
     });
 
-  }
+  }; //End of displayDogs function
 
-  // Function for displaying dog data
+  // Function for displaying dog buttons
   function renderButtons() {
 
     $("#buttons-view").empty();
@@ -66,7 +69,7 @@ function displayDogs() {
     }
   }
 
-  // This function handles events where a dog button is clicked
+  // Function handles events where submit button is clicked
   $("#add-dog").click(function(event) {
     event.preventDefault();
     // This line grabs the input from the textbox
@@ -80,8 +83,7 @@ function displayDogs() {
   });
 
   // Adding a click event listener to all elements with a class of "dog-btn"
-  $(document).click(".dog-btn", displayDogs);
-
+    $(document).on("click", ".dog-btn", displayDogs);
   // Calling the renderButtons function to display the intial buttons
   renderButtons();
 
