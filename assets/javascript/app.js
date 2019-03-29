@@ -7,7 +7,7 @@ var dogs = ["GSD", "Golden Retriever", "Black Lab", "Pitbull"];
 // displayDogs function re-renders the HTML to display the appropriate content
 function displayDogs() {
 
-    var dog = $(this).attr("data-name");
+    var dog = $(this).attr("data-dog");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dog + "&api_key=tqC0R8egBTOd0JGuFbMwnsSpIop1b4F9&limit=10";
 
     // Creating an AJAX call for the specific dog button being clicked
@@ -19,18 +19,19 @@ function displayDogs() {
         console.log(response);
 
       // Creating a div to hold the dog type
-      var dogDiv = $("#dog-view");
+      var dogDiv = $("<div>");
 
       for (var i = 0; i < response.data.length; i++) {
 
-      // Retrieving the URL for the image
-      var imgURL = response.data[i].images.fixed_height.url;
+      // Retrieving the URL for the still and animate images
+      var stillImageURL = response.data[i].images.fixed_height_still.url;
+      var animateImageURL = response.data[i].images.fixed_height.url;
 
       // Creating an element to hold the image
-      var image = $("<img>").attr("src", imgURL);
-
-      // Appending the image
-      dogDiv.append(image);
+      var imgURL = $("<img>").attr("src", stillImageURL);
+      imgURL.attr("data-still", stillImageURL);
+      imgURL.attr("data-animate", animateImageURL);
+      imgURL.attr("data-state", "still");
 
       // Storing the rating data
       var ratingData = response.data[i].rating;
@@ -38,11 +39,12 @@ function displayDogs() {
       // Creating an element to have the rating displayed
       var ratingDisplay = $("<p>").text("Rating: " + ratingData);
 
-      // Displaying the rating
-      dogDiv.append(ratingDisplay);
+      // Append image and ratings
+      dogDiv.append(imgURL, ratingDisplay);
 
-      // Putting the entire dog response above the previous dogs
-      $("#dog-view").append(dogDiv);
+      // Prependng the dogDiv to the HTML page in the "#dog-view" div
+      $("#dog-view").prepend(dogDiv);
+
       };
     });
 
@@ -61,7 +63,7 @@ function displayDogs() {
       // Adding a class of dog-btn to our button
       btn.addClass("dog-btn btn btn-info m-1");
       // Adding a data-attribute
-      btn.attr("data-name", dogs[i]);
+      btn.attr("data-dog", dogs[i]);
       // Providing the initial button text
       btn.text(dogs[i]);
       // Adding the button to the buttons-view div
@@ -88,3 +90,7 @@ function displayDogs() {
   renderButtons();
 
 });
+
+
+
+
