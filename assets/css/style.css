@@ -7,10 +7,14 @@
 
 h1 {
     position: relative;
-    bottom: 100%;
+    bottom: 140%;
+}
+
+body {
+    background-color: whitesmoke;
 }
 
 form {
     background: lightgray;
-    padding: 10px 0 10px 10px;
+    padding: 10px;
 }
