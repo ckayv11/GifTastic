@@ -17,6 +17,7 @@ var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull"];
       for (var i = 0; i < response.data.length; i++) {
       // Dynamically creating a div to hold the dog type, setting variables to retrieve images URLs, creating element to hold image and assign attributes
       var dogDiv = $("<div>");
+      dogDiv.addClass("col-md-4");
       var stillImageURL = response.data[i].images.fixed_height_still.url;
       var animateImageURL = response.data[i].images.fixed_height.url;
       var imgURL = $("<img>").attr("src", stillImageURL);
@@ -30,25 +31,12 @@ var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull"];
       // Append image and ratings & then prepending the dogDiv to the HTML page in the "#dog-view" div
       dogDiv.append(imgURL, ratingDisplay);
       $("#dog-view").prepend(dogDiv);
-
-        // Function to pause and start gifs
-        $(".gif").on("click", function() {
-          var state = $(this).attr("data-state");
-          if (state === "still") {
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");
-          } else {
-            $(this).attr("src", $(this).attr("data-still"));
-            $(this).attr("data-state", "still");
-          };
-        });
       };
     });
   }; //End of displayDogs function
 
   // Function for displaying dog buttons
   function renderButtons() {
-
     $("#buttons-view").empty();
     for (var i = 0; i < dogs.length; i++) {
       // Dynamicaly generating buttons for each dog in the array and adding classes/attributes to buttons
@@ -71,12 +59,23 @@ var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull"];
     renderButtons();
   });
 
+  // Function to pause and start gifs
+  function playPauseGifs() {
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    };
+  };
+    
   // Adding a click event listener to all elements with a class of "dog-btn"
   $(document).on("click", ".dog-btn", displayDogs);
   // Call renderButtons function to display the intial buttons
   renderButtons();
-
+  // Adding a click event listener to all elements with a class of "gif" to play or pause
+  $(document).on("click", ".gif", playPauseGifs);
+  
 });
-
-
-

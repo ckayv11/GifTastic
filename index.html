@@ -22,24 +22,24 @@
     <div class="container">
     <!-- Rendered Buttons will get Dumped Here  -->
         <div class="row">
-            <div class="col-md-12 my-3">
+            <div class="col-md-9 mt-5 mb-2 text-center">
+                <h4>Click on a button for a cuddly surprise!</h4>
                 <div id="buttons-view"></div>
             </div>
+            <div class="col-md-3 mt-5 mb-2">
+                    <form id="add-form">
+                        <label for="form-input">Add any type of dog</label>
+                        <input type="text" class="form-control" id="form-input">
+                        <br>
+        <!-- Button triggers new dog type to be added -->
+                        <button id="add-dog" type="submit" class="btn btn-info btn-sm">Submit</button>
+                    </form>
+                </div>
         </div>
     <!-- Dog Results will Get Dumped Here -->
         <div class="row">
-            <div class="col-md-9 mt-2">
+            <!-- <div class="col-md-4 mt-2"> -->
                 <div id="dog-view"></div>
-            </div>
-
-            <div class="col-md-3 mt-2">
-                <form id="add-form">
-                    <label for="form-input">Add any type of dog</label>
-                    <input type="text" class="form-control" id="form-input">
-                    <br>
-    <!-- Button triggers new dog type to be added -->
-                    <button id="add-dog" type="submit" class="btn btn-info btn-sm">Submit</button>
-                </form>
             </div>
         </div>
     </div>
