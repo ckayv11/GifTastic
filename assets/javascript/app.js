@@ -17,7 +17,7 @@ var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull"];
       for (var i = 0; i < response.data.length; i++) {
       // Dynamically creating a div to hold the dog type, setting variables to retrieve images URLs, creating element to hold image and assign attributes
       var dogDiv = $("<div>");
-      dogDiv.addClass("col-md-4");
+      dogDiv.addClass("col-md-4 responsive");
       var stillImageURL = response.data[i].images.fixed_height_still.url;
       var animateImageURL = response.data[i].images.fixed_height.url;
       var imgURL = $("<img>").attr("src", stillImageURL);
