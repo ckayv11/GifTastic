@@ -18,3 +18,12 @@ form {
     background: lightgray;
     padding: 10px;
 }
+
+#userMessage {
+    display: none;
+}
+
+img {
+    width: 350px;
+    height: 300px;
+}

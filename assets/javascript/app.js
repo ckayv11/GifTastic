@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull"];
+var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull Dog"];
 
 // displayDogs function re-renders the HTML to display the appropriate content
   function displayDogs() {
@@ -31,6 +31,7 @@ var dogs = ["German Shepherd", "Golden Retriever", "Black Lab", "Pitbull"];
       // Append image and ratings & then prepending the dogDiv to the HTML page in the "#dog-view" div
       dogDiv.append(imgURL, ratingDisplay);
       $("#dog-view").prepend(dogDiv);
+      $("#userMessage").show();
       };
     });
   }; //End of displayDogs function
