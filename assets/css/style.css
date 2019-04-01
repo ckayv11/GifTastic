@@ -30,6 +30,17 @@ img {
     height: 300px;
 }
 
+@media only screen and (max-width: 1024px) {
+    .responsive {
+        margin: 10px;
+    }
+
+    img {
+        width: 250px;
+        height: 200px;
+    }
+  }
+
 @media only screen and (max-width: 680px) {
     #header {
       background-size: cover;
@@ -37,11 +48,17 @@ img {
     }
 
     h1 {
+        display: inline;
         position: relative;
-        bottom: 170%;
+        bottom: 200%;
         left: 18%;
         font: 'Sacramento', cursive, bolder;
         font-size: 30px;
+    }
+
+    img {
+        width: 350px;
+        height: 300px;
     }
 
   }
