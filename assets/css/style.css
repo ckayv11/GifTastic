@@ -8,6 +8,8 @@
 h1 {
     position: relative;
     bottom: 140%;
+    font-family: 'Sacramento', cursive;
+    font-weight: bolder;
 }
 
 body {
@@ -33,4 +35,13 @@ img {
       background-size: cover;
       background-repeat: none;
     }
+
+    h1 {
+        position: relative;
+        bottom: 170%;
+        left: 18%;
+        font: 'Sacramento', cursive, bolder;
+        font-size: 30px;
+    }
+
   }
